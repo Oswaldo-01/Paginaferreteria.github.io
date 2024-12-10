@@ -1,0 +1,282 @@
+/* Estilos generales */
+/* Fondo con imagen de fondo y overlay suave */
+body {
+    font-family: 'Roboto', sans-serif; /* Fuente moderna y legible */
+    background-image: url('fondo-h.jpg'); /* Asegúrate de poner la ruta correcta de la imagen */
+    background-size: cover; /* Cubrir toda la pantalla */
+    background-position: center center; /* Centrado de la imagen */
+    background-attachment: fixed; /* Fija el fondo al hacer scroll */
+    color: #444;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* Overlay para mejorar la visibilidad del texto sobre la imagen */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    z-index: -1; /* Asegura que el overlay quede detrás del contenido */
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff; /* Fondo blanco para resaltar el contenido */
+    border-radius: 25px; /* Bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Título de la tienda */
+.header-negocio h1 {
+    font-size: 50px;
+    color: #333;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #FF6A00;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.header-negocio h1:hover {
+    transform: scale(1.1); /* Efecto de escala al pasar el mouse */
+}
+
+/* Título de productos disponibles */
+header h2 {
+    color: #fff; /* Color de texto blanco */
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px; /* Desplazamiento hacia la derecha */
+    margin-right: 20px; /* Desplazamiento hacia la derecha */
+    padding: 10px 20px; /* Espaciado alrededor del texto */
+    background-color: rgba(44, 62, 80, 0.85); /* Fondo oscuro con transparencia */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
+    text-align: center; /* Centrado del texto */
+}
+
+header h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background-color: #FF6A00;
+    bottom: -10px;
+    left: 25%;
+}
+
+/* Contenedor de productos */
+.productos-container {
+    background-color: #ffffff;
+    padding: 40px;
+    margin: 0 20px; /* Margen lateral para evitar que los productos se peguen a los bordes */
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Grid de productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adaptación para pantallas grandes */
+    gap: 40px; /* Espacio entre productos */
+    margin-top: 20px; /* Separación desde el encabezado */
+    margin-bottom: 20px; /* Ajustamos el margen inferior */
+    padding-top: 10px; /* Subimos los productos un poco */
+    padding: 0 20px; /* Añadimos padding horizontal al grid para que los productos no se peguen a los bordes */
+}
+
+/* Tarjetas de producto */
+.producto-card {
+    background-color: #fefefe;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    height: 100%;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px); /* Efecto de desplazamiento al pasar el ratón */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del producto */
+.producto-figura {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: #eee; /* Fondo gris si no hay imagen */
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Información del producto */
+.producto-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.producto-info h2 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.descripcion {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+    height: 50px;
+    overflow: hidden; /* Evitar desbordes de texto */
+}
+
+.precio {
+    font-size: 20px;
+    font-weight: bold;
+    color: #28a745; /* Verde para precio */
+    margin-top: 10px;
+}
+
+/* Botón "Agregar productos" */
+.agregar-btn {
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 18px;
+    display: inline-block; /* Lo convierte en un bloque en línea */
+    margin-left: 20px; /* Mueve el botón un poco hacia la derecha */
+    margin-top: 20px; /* Separación superior */
+    margin-bottom: 20px; /* Separación inferior */
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* Acciones de los productos (botones) */
+.producto-acciones {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+    border-radius: 0 0 20px 20px;
+}
+
+.producto-acciones .btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.actualizar-btn {
+    background-color: #304378; /* Amarillo para actualizar */
+}
+
+.eliminar-btn {
+    background-color: #dc3545; /* Rojo para eliminar */
+}
+
+.producto-acciones .btn:hover {
+    opacity: 0.85;
+}
+
+/* Contenedor del buscador, justo debajo del título */
+.form-busqueda {
+    text-align: center;
+    margin-top: 20px;  /* Espaciado superior */
+    margin-bottom: 40px;  /* Espaciado inferior */
+}
+
+/* Estilo para el campo de búsqueda */
+.buscador {
+    padding: 12px 20px;
+    font-size: 18px;
+    width: 80%; /* Ocupa el 80% del contenedor, puedes ajustarlo según tus necesidades */
+    max-width: 500px; /* Limita el ancho máximo */
+    border: 2px solid #4CAF50; /* Borde verde */
+    border-radius: 30px; /* Bordes redondeados */
+    background-color: #f1f1f1; /* Color de fondo suave */
+    color: #333; /* Color de texto */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto cuando el campo está en foco */
+.buscador:focus {
+    outline: none;
+    border-color: #FF7F32; /* Borde naranja cuando tiene foco */
+    box-shadow: 0px 4px 8px rgba(255, 127, 50, 0.4); /* Sombra cuando tiene foco */
+}
+
+/* Estilo para el placeholder */
+.buscador::placeholder {
+    color: #999; /* Color del texto del placeholder */
+    font-style: italic;
+}
+
+/* Estilos para la animación de fondo */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #FF6A00, 0 0 20px #FF6A00, 0 0 30px #FF6A00;
+    }
+    50% {
+        text-shadow: 0 0 15px #FF6A00, 0 0 25px #FF6A00, 0 0 35px #FF6A00;
+    }
+    100% {
+        text-shadow: 0 0 10px #FF6A00, 0 0 20px #FF6A00, 0 0 30px #FF6A00;
+    }
+}
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 768px) {
+    /* Productos se ajustan mejor en pantallas pequeñas */
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Menos columnas en pantallas pequeñas */
+    }
+
+    .producto-info h2 {
+        font-size: 18px; /* Ajuste del tamaño del título del producto */
+    }
+
+    .producto-info {
+        padding: 15px;
+    }
+
+    .agregar-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .header-negocio h1 {
+        font-size: 40px; /* Título más pequeño en pantallas pequeñas */
+    }
+}
